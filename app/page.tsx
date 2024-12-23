@@ -6,7 +6,7 @@ import HeroSlider from "@/components/HeroSlider";
 
 export default function Home() {
   return (
-    <div className="bg-white min-h-screen flex flex-col">
+    <div className="bg-[#f3ece7] min-h-screen flex flex-col">
       {/* Header */}
       <Header />
 
