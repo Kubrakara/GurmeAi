@@ -5,15 +5,15 @@ export default function Menu() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-black">
         {[
           {
-            title: "Input Ingredients",
+            title: "Tarif oluşturun",
             image: "https://via.placeholder.com/300?text=Ingredients",
           },
           {
-            title: "Recipe Library",
+            title: "Geleneksel Tarifler",
             image: "https://via.placeholder.com/300?text=Library",
           },
           {
-            title: "Daily Menu",
+            title: "Günün Menüsü",
             image: "https://via.placeholder.com/300?text=Menu",
           },
         ].map((item) => (

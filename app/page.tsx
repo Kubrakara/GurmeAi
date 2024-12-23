@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Menu from "@/components/Menu";
 import FeaturedRecipes from "@/components/FeaturedRecipes";
+import HeroSlider from "@/components/HeroSlider";
 
 export default function Home() {
   return (
@@ -10,7 +11,7 @@ export default function Home() {
       <Header />
 
       {/* Hero Bölümü */}
-      <section
+      {/* <section
         className="flex items-center justify-center bg-cover bg-center min-h-[480px] p-8"
         style={{
           backgroundImage:
@@ -18,11 +19,11 @@ export default function Home() {
         }}
       >
         <div className="text-center text-white">
-          <h1 className="text-4xl font-black">What's for dinner?</h1>
-          <p className="text-lg mt-2">Enter ingredients to find new recipes.</p>
+          <h1 className="text-4xl font-black">Akşam Yemekte ne var ?</h1>
+          <p className="text-lg mt-2">Yeni tarifler bulmak için malzemeleri girin.</p>
         </div>
-      </section>
-
+      </section> */}
+      <HeroSlider />
       {/* Menu Bölümü */}
       <section className="py-10">
         <Menu />
@@ -39,4 +40,4 @@ export default function Home() {
       </section>
     </div>
   );
-}
+} 

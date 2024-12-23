@@ -15,7 +15,7 @@ const recipes: Recipe[] = [
 export default function FeaturedRecipes() {
   return (
     <section className="p-6">
-      <h2 className="text-2xl font-bold mb-4">Featured Recipes</h2>
+      <h2 className="text-2xl font-bold mb-4">Öne çıkan tarifler</h2>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
         {recipes.map((recipe, index) => (
           <div
