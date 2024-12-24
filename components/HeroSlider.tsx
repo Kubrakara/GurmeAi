@@ -23,17 +23,17 @@ const HeroSlider = () => {
 
   const slides = [
     {
-      image: "/1arkaplan.png",
+      image: "1.jpg",
       title: "Akşam Yemekte Ne Var?",
       description: "Yeni tarifler bulmak için malzemeleri girin.",
     },
     {
-      image: "/2arkaplan.png",
+      image: "fav.jpg",
       title: "Favori Tarifleriniz",
       description: "Favori tariflerinizi burada bulabilirsiniz.",
     },
     {
-      image: "/3arkaplan.png",
+      image: "masa.jpg",
       title: "Günün Menüsü",
       description: "Bugün için önerilen menülerimizi keşfedin.",
     },
@@ -44,10 +44,10 @@ const HeroSlider = () => {
       {slides.map((slide, index) => (
         <div key={index} className="keen-slider__slide">
           <div
-            className="h-64 bg-cover bg-center"
+            className="h-96 bg-cover bg-center"
             style={{ backgroundImage: `url(${slide.image})` }}
           >
-            <div className="bg-black bg-opacity-50 text-white p-4">
+            <div className="bg-black bg-opacity-40 text-white p-4">
               <h2 className="text-2xl font-bold">{slide.title}</h2>
               <p>{slide.description}</p>
             </div>

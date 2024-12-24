@@ -10,19 +10,7 @@ export default function Home() {
       {/* Header */}
       <Header />
 
-      {/* Hero Bölümü */}
-      {/* <section
-        className="flex items-center justify-center bg-cover bg-center min-h-[480px] p-8"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.4)), url('/1arkaplan.png')",
-        }}
-      >
-        <div className="text-center text-white">
-          <h1 className="text-4xl font-black">Akşam Yemekte ne var ?</h1>
-          <p className="text-lg mt-2">Yeni tarifler bulmak için malzemeleri girin.</p>
-        </div>
-      </section> */}
+    
       <HeroSlider />
       {/* Menu Bölümü */}
       <section className="py-10">

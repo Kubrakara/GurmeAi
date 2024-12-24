@@ -4,32 +4,36 @@ interface Recipe {
 }
 
 const recipes: Recipe[] = [
-  { name: "Pasta Carbonara", image: "/images/pasta-carbonara.jpg" },
-  { name: "Spaghetti Bolognese", image: "/images/spaghetti-bolognese.jpg" },
-  { name: "Chicken Alfredo", image: "/images/chicken-alfredo.jpg" },
-  { name: "Shrimp Scampi", image: "/images/shrimp-scampi.jpg" },
-  { name: "Beef Stroganoff", image: "/images/beef-stroganoff.jpg" },
-  { name: "Fettuccine Alfredo", image: "/images/fettuccine-alfredo.jpg" },
+  { name: "Pasta Carbonara", image: "2.jpg" },
+  { name: "Spaghetti Bolognese", image: "pexels-xmtnguyen-699953.jpg" },
+  { name: "Chicken Alfredo", image: "pexels-janetrangdoan-793759.jpg" },
+  { name: "Shrimp Scampi", image: "pexels-janetrangdoan-769969.jpg" },
+  { name: "Beef Stroganoff", image: "pexels-solliefoto-299347.jpg" },
+  { name: "Fettuccine Alfredo", image: "pexels-pascal-claivaz-66964-410648.jpg" },
 ];
 
 export default function FeaturedRecipes() {
   return (
-    <section className="p-6">
-      <h2 className="text-2xl font-bold mb-4">Öne çıkan tarifler</h2>
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+    <section >
+      <h2 className="text-3xl font-extrabold text-[#1b130d] text-center mb-6">
+        Öne Çıkan Tarifler
+      </h2>
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
         {recipes.map((recipe, index) => (
           <div
             key={index}
-            className="flex flex-col items-center text-center gap-2"
+            className="flex flex-col items-center text-center gap-4 transition-transform duration-200 hover:scale-105"
           >
-            <div className="w-32 h-32 overflow-hidden rounded-lg shadow-lg">
+            <div className="w-40 h-40 overflow-hidden rounded-xl shadow-md bg-white">
               <img
                 src={recipe.image}
                 alt={recipe.name}
                 className="w-full h-full object-cover"
               />
             </div>
-            <p className="text-sm font-medium">{recipe.name}</p>
+            <p className="text-lg font-bold text-[#1b130d] hover:text-orange-500 transition-colors duration-200">
+              {recipe.name}
+            </p>
           </div>
         ))}
       </div>

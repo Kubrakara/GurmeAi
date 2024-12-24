@@ -110,7 +110,7 @@ export default function Menu() {
   return (
     <div
       className="relative flex size-full min-h-screen flex-col bg-[#fcfaf8] group/design-root overflow-x-hidden"
-      style={{ fontFamily: "Epilogue, 'Noto Sans', sans-serif" }}
+      style={{ fontFamily: "Epilogue, 'Noto Sans', sans-serif", backgroundImage: `url('')`,backgroundSize: "cover", backgroundRepeat: "no-repeat",backgroundPosition: "center"}}
     >
       {/* Header */}
       <Header />
@@ -119,13 +119,13 @@ export default function Menu() {
       <div className="layout-container flex h-full grow flex-col items-center">
         {/* Hero Section */}
         <div
-          className="flex flex-col items-center justify-center text-center bg-cover bg-center bg-no-repeat p-8 w-full"
+          className="flex flex-col items-center  justify-center text-center bg-cover bg-center bg-no-repeat p-8 w-full"
           style={{
-            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('${aiGeneratedMenu.image}')`,
+            backgroundImage: `url('${aiGeneratedMenu.image}')`,
           }}
         >
-          <h1 className="text-white text-3xl font-bold">{aiGeneratedMenu.title}</h1>
-          <p className="text-white text-lg mt-2">{aiGeneratedMenu.description}</p>
+          <h1 className="text-[#f7e7db] text-3xl font-bold">{aiGeneratedMenu.title}</h1>
+          <p className="text-[#f7e7db] text-lg mt-2">{aiGeneratedMenu.description}</p>
         </div>
 
         {/* Menu Items */}

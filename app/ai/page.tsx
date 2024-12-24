@@ -8,7 +8,7 @@ const AiPage = () => {
       className="relative flex size-full min-h-screen flex-col bg-cover bg-center overflow-x-hidden"
       style={{
         fontFamily: "Epilogue, 'Noto Sans', sans-serif",
-        backgroundImage: `url('res4.png')`, 
+        backgroundImage: `url('res41.png')`, 
       }}
     >
       <div className="layout-container flex h-full grow flex-col">
@@ -16,7 +16,8 @@ const AiPage = () => {
 
         {/* Main Content: Ortalanan Bölüm */}
         <div className="flex flex-1 items-center justify-center">
-          <div className="layout-content-container flex flex-col max-w-[800px] flex-1 items-center text-center  bg-opacity-10 backdrop-blur-sm  p-10 rounded-lg shadow-lg">
+          <div className="layout-content-container flex flex-col max-w-[800px] flex-1 items-center text-center  bg-opacity-5 bg-white backdrop-blur-sm p-10 rounded-lg shadow-lg">
+          {/* backdrop-blur-sm */}
             <h2 className="text-[#1b130d] text-[32px] font-bold leading-tight mb-6">
               Buzdolabında ne var?
             </h2>
