@@ -23,7 +23,7 @@ const HeroSlider = () => {
 
   const slides = [
     {
-      image: "1.jpg",
+      image: "aksamyemek.jpeg",
       title: "Akşam Yemekte Ne Var?",
       description: "Yeni tarifler bulmak için malzemeleri girin.",
     },
@@ -33,7 +33,7 @@ const HeroSlider = () => {
       description: "Favori tariflerinizi burada bulabilirsiniz.",
     },
     {
-      image: "masa.jpg",
+      image: "yemek.webp",
       title: "Günün Menüsü",
       description: "Bugün için önerilen menülerimizi keşfedin.",
     },

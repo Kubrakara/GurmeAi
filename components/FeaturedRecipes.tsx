@@ -15,7 +15,7 @@ const recipes: Recipe[] = [
 export default function FeaturedRecipes() {
   return (
     <section >
-      <h2 className="text-3xl font-extrabold text-[#1b130d] text-center mb-6">
+      <h2 className="text-3xl font-extrabold text-[#1b130d] text-center mb-12  ">
         Öne Çıkan Tarifler
       </h2>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
@@ -24,7 +24,7 @@ export default function FeaturedRecipes() {
             key={index}
             className="flex flex-col items-center text-center gap-4 transition-transform duration-200 hover:scale-105"
           >
-            <div className="w-40 h-40 overflow-hidden rounded-xl shadow-md bg-white">
+            <div className="w-40 h-40 overflow-hidden rounded-xl shadow-md ">
               <img
                 src={recipe.image}
                 alt={recipe.name}

@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function Header() {
   return (
     <>
-    <header className="flex items-center justify-between border-b px-10 py-3 bg-[#fcfaf8] text-[#1b130d]">
+    <header className="flex items-center justify-between bg-white px-10 py-3 text-[#1b130d]">
       {/* Logo */}
       <div className="flex items-center gap-4">
         <div className="size-4 text-[#1b130d]">
@@ -23,28 +23,28 @@ export default function Header() {
       </div>
 
       {/* Navigasyon Linkleri */}
-      <nav className="flex items-center gap-9">
-        <Link href="/" className="text-sm font-medium hover:text-orange-600">
+      <nav className="flex items-center  gap-9">
+        <Link href="/" className="text-base font-bold  hover:text-orange-600">
           Anasayfa
         </Link>
-        <Link href="/ai" className="text-sm font-medium hover:text-orange-600">
+        <Link href="/ai" className="text-base font-bold hover:text-orange-600">
           Yapay Zeka
         </Link>
         <Link
           href="/recipes"
-          className="text-sm font-medium hover:text-orange-600"
+          className="text-base font-bold hover:text-orange-600"
         >
           Geleneksel Tarifler
         </Link>
         <Link
           href="dailyMenu"
-          className="text-sm font-medium hover:text-orange-600"
+          className="text-base font-bold hover:text-orange-600"
         >
           Günün Menüsü
         </Link>
         <Link
           href="/about"
-          className="text-sm font-medium hover:text-orange-600"
+          className="text-base font-bold hover:text-orange-600"
         >
           Hakkında
         </Link>
@@ -54,12 +54,12 @@ export default function Header() {
       <div className="flex space-x-4">
         <Link href="/login">
           <button className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-[#f3ece7] text-[#1b130d] text-sm font-bold leading-normal tracking-[0.015em]">
-            <span className="truncate">Giriş Yap</span>
+            <span className="truncate text-base">Giriş Yap</span>
           </button>
         </Link>
         <Link href="/signup">
           <button className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-[#ee7f2b] text-[#1b130d] text-sm font-bold leading-normal tracking-[0.015em]">
-            <span className="truncate">Kayıt Ol</span>
+            <span className="truncate text-base">Kayıt Ol</span>
           </button>
         </Link>
       </div>
