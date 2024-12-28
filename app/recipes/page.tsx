@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import Header from "@/frontend/components/Header";
+import Header from "@/components/Header";
 
 const RecipesPage = () => {
   const [categories, setCategories] = useState<string[]>([]);

@@ -1,7 +1,7 @@
 "use client"; // Dosyanın bir client bileşeni olduğunu belirtir
 
-import Footer from "@/frontend/components/Footer";
-import Header from "@/frontend/components/Header";
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 import React, { useState } from "react";
 
 const AiPage = () => {

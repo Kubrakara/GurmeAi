@@ -1,8 +1,8 @@
-import Header from "@/frontend/components/Header";
-import Footer from "@/frontend/components/Footer";
-import Menu from "@/frontend/components/Menu";
-import FeaturedRecipes from "@/frontend/components/FeaturedRecipes";
-import HeroSlider from "@/frontend/components/HeroSlider";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import Menu from "@/components/Menu";
+import FeaturedRecipes from "@/components/FeaturedRecipes";
+import HeroSlider from "@/components/HeroSlider";
 
 export default function Home() {
   return (
