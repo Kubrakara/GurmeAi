@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import Header from "@/frontend/components/Header";
+import Footer from "@/frontend/components/Footer";
 import jsPDF from "jspdf";
 import { url } from "inspector";
 

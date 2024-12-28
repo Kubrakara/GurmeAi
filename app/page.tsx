@@ -1,8 +1,8 @@
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import Menu from "@/components/Menu";
-import FeaturedRecipes from "@/components/FeaturedRecipes";
-import HeroSlider from "@/components/HeroSlider";
+import Header from "@/frontend/components/Header";
+import Footer from "@/frontend/components/Footer";
+import Menu from "@/frontend/components/Menu";
+import FeaturedRecipes from "@/frontend/components/FeaturedRecipes";
+import HeroSlider from "@/frontend/components/HeroSlider";
 
 export default function Home() {
   return (
@@ -20,7 +20,7 @@ export default function Home() {
       </section>
 
       {/* Featured Recipes Bölümü */}
-      <section className="container mx-auto  text-black">
+      <section className="container py-14 mx-auto  text-black">
         <FeaturedRecipes />
       </section>
 

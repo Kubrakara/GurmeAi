@@ -28,7 +28,7 @@ const HeroSlider = () => {
       description: "Yeni tarifler bulmak için malzemeleri girin.",
     },
     {
-      image: "fav.jpg",
+      image: "favyemek.webp",
       title: "Favori Tarifleriniz",
       description: "Favori tariflerinizi burada bulabilirsiniz.",
     },

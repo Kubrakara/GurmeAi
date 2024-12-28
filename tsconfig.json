@@ -15,7 +15,7 @@
     "incremental": true,
     "baseUrl": ".", // Proje kökü
     "paths": {
-      "@/components/*": ["components/*"], // Alias tanımı
+      "@/components/*": ["frontend/components/*"], // Alias tanımı
       "@/*": ["./*"] // Genel alias tanımı
     },
     "plugins": [
