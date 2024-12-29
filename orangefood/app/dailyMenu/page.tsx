@@ -1,9 +1,8 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import jsPDF from "jspdf";
-import { url } from "inspector";
 
 interface Ingredient {
   name: string;
@@ -23,70 +22,25 @@ interface MenuData {
 }
 
 export default function Menu() {
-  const menuData: MenuData = {
-    title: "Günün Menüsü",
-    description: "Bugün sizin için seçtiğimiz tarifler!",
-    items: [
-      {
-        category: "Çorba",
-        name: "Ezogelin Çorbası",
-        ingredients: [
-          { name: "1 su bardağı kırmızı mercimek", alternative: "Yeşil mercimek" },
-          { name: "1 çay bardağı bulgur", alternative: "Pirinç" },
-          { name: "1 adet soğan", alternative: "Kuru sarımsak" },
-          { name: "2 yemek kaşığı tereyağı", alternative: "Margarin" },
-          { name: "1 yemek kaşığı salça", alternative: "Domates püresi" },
-          { name: "6 su bardağı su", alternative: "Et suyu" },
-          { name: "Tuz, karabiber, pul biber", alternative: "Kekik, nane" },
-        ],
-      },
-      {
-        category: "Ana Yemek",
-        name: "Tavuklu Pilav",
-        ingredients: [
-          { name: "1 su bardağı pirinç", alternative: "Bulgur" },
-          { name: "200 gram haşlanmış tavuk", alternative: "Kıyma" },
-          { name: "2 su bardağı tavuk suyu", alternative: "Et suyu" },
-          { name: "2 yemek kaşığı tereyağı", alternative: "Zeytinyağı" },
-          { name: "Tuz, karabiber", alternative: "Pul biber" },
-        ],
-      },
-      {
-        category: "Yan Yemek",
-        name: "Fırında Patates",
-        ingredients: [
-          { name: "4 adet patates", alternative: "Tatlı patates" },
-          { name: "2 yemek kaşığı zeytinyağı", alternative: "Ayçiçek yağı" },
-          { name: "1 tatlı kaşığı kırmızı toz biber", alternative: "Pul biber" },
-          { name: "Tuz, karabiber", alternative: "Kimyon" },
-        ],
-      },
-      {
-        category: "Salata",
-        name: "Çoban Salatası",
-        ingredients: [
-          { name: "2 adet domates", alternative: "Cherry domates" },
-          { name: "2 adet salatalık", alternative: "Biber" },
-          { name: "1 adet soğan", alternative: "Taze soğan" },
-          { name: "1 yemek kaşığı zeytinyağı", alternative: "Limon suyu" },
-          { name: "Tuz", alternative: "Nar ekşisi" },
-        ],
-      },
-      {
-        category: "Tatlı",
-        name: "Sütlaç",
-        ingredients: [
-          { name: "1 litre süt", alternative: "Badem sütü" },
-          { name: "1 çay bardağı pirinç", alternative: "Buğday" },
-          { name: "1 su bardağı toz şeker", alternative: "Bal" },
-          { name: "1 yemek kaşığı nişasta", alternative: "Pirinç unu" },
-          { name: "1 paket vanilin", alternative: "Vanilya çubuğu" },
-        ],
-      },
-    ],
-  };
- 
+  const [menuData, setMenuData] = useState<MenuData | null>(null);
   const [checkedItems, setCheckedItems] = useState<string[]>([]);
+
+  useEffect(() => {
+    const fetchMenu = async () => {
+      try {
+        const response = await fetch("http://localhost:8000/api/menu");
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        setMenuData(data);
+      } catch (error) {
+        console.error("Menü verisi yüklenirken bir hata oluştu:", error);
+      }
+    };
+
+    fetchMenu();
+  }, []);
 
   const handleCheckboxChange = (ingredient: string) => {
     setCheckedItems((prev) =>
@@ -99,7 +53,7 @@ export default function Menu() {
   const getAllMissingIngredients = () => {
     const missing: { category: string; name: string; missingIngredients: Ingredient[] }[] = [];
 
-    menuData.items.forEach((item) => {
+    menuData?.items.forEach((item) => {
       const missingIngredients = item.ingredients.filter(
         (ingredient) => !checkedItems.includes(ingredient.name)
       );
@@ -145,6 +99,10 @@ export default function Menu() {
     doc.save("alisveris_listesi.pdf");
   };
 
+  if (!menuData) {
+    return <div>Yükleniyor...</div>;
+  }
+
   return (
     <div
       className="relative flex size-full min-h-screen flex-col bg-[#fcfaf8] overflow-x-hidden"
@@ -152,10 +110,7 @@ export default function Menu() {
         fontFamily: "Epilogue, 'Noto Sans', sans-serif",
       }}
     >
-      {/* Header */}
       <Header />
-
-      {/* Main Content */}
       <div
         style={{
           backgroundImage: "url('dailymenu.webp')",
@@ -163,9 +118,8 @@ export default function Menu() {
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
         }}
-        className="flex flex-1 items-center justify-center  backdrop-blur-sm py-10 px-4"
+        className="flex flex-1 items-center justify-center backdrop-blur-sm py-10 px-4"
       >
-        {/* Central Card */}
         <div className="p-8 rounded-lg shadow-xl max-w-4xl w-full border border-[#f3ece7] backdrop-blur-lg bg-[#ebdfd2] bg-opacity-70">
           <div className="text-center mb-6">
             <h1 className="text-4xl font-extrabold text-[#1b130d] mb-2">
@@ -173,7 +127,6 @@ export default function Menu() {
             </h1>
             <p className="text-lg text-[#6b5c4c]">{menuData.description}</p>
           </div>
-          {/* Menu Items */}
           {menuData.items.map((item, index) => (
             <div key={index} className="mb-8">
               <h2 className="text-[#1b130d] text-2xl font-bold mb-4">
@@ -192,7 +145,9 @@ export default function Menu() {
                       onChange={() => handleCheckboxChange(ingredient.name)}
                     />
                     <div className="flex-1">
-                      <span className="text-[#423b32] font-bold">{ingredient.name}</span>
+                      <span className="text-[#423b32] font-bold">
+                        {ingredient.name}
+                      </span>
                       {checkedItems.includes(ingredient.name) || (
                         <span className="text-[#744d30] text-sm ml-2">
                           (Alternatif: {ingredient.alternative})
@@ -212,8 +167,6 @@ export default function Menu() {
           </button>
         </div>
       </div>
-
-      {/* Footer */}
       <Footer />
     </div>
   );

@@ -1,0 +1,30 @@
+{
+    "title": "Günün Menüsü",
+    "description": "Bugün sizin için seçtiğimiz tarifler!",
+    "items": [
+        {
+            "category": "Çorba",
+            "name": "Ezogelin Çorbası",
+            "ingredients": [
+                { "name": "1 su bardağı kırmızı mercimek", "alternative": "Yeşil mercimek" },
+                { "name": "1 çay bardağı bulgur", "alternative": "Pirinç" },
+                { "name": "1 adet soğan", "alternative": "Kuru sarımsak" },
+                { "name": "2 yemek kaşığı tereyağı", "alternative": "Margarin" },
+                { "name": "1 yemek kaşığı salça", "alternative": "Domates püresi" },
+                { "name": "6 su bardağı su", "alternative": "Et suyu" },
+                { "name": "Tuz, karabiber, pul biber", "alternative": "Kekik, nane" }
+            ]
+        },
+        {
+            "category": "Tatlı",
+            "name": "Sütlaç",
+            "ingredients": [
+                { "name": "1 litre süt", "alternative": "Badem sütü" },
+                { "name": "1 çay bardağı pirinç", "alternative": "Buğday" },
+                { "name": "1 su bardağı toz şeker", "alternative": "Bal" },
+                { "name": "1 yemek kaşığı nişasta", "alternative": "Pirinç unu" },
+                { "name": "1 paket vanilin", "alternative": "Vanilya çubuğu" }
+            ]
+        }
+    ]
+}

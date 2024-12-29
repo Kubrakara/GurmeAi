@@ -25,18 +25,20 @@ const RecipesPage = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      try {
-        const response = await fetch("/recipes.json");
-        const data = await response.json();
-        setRecipesByCategory(data);
-        setCategories(Object.keys(data));
-      } catch (error) {
-        console.error("Veri yüklenirken bir hata oluştu:", error);
-      }
+        try {
+            const response = await fetch("http://localhost:8000/api/home");
+            const data = await response.json();
+            console.log(data); 
+            setRecipesByCategory(data);
+            setCategories(Object.keys(data));
+        } catch (error) {
+            console.error("Veri yüklenirken bir hata oluştu:", error);
+        }
     };
 
     fetchData();
-  }, []);
+}, []);
+
 
   const recipesToShow = selectedCategory
     ? recipesByCategory[selectedCategory] || []
