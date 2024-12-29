@@ -1,18 +1,34 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 import json
-import requests
 import os
-from dotenv import load_dotenv  # dotenv modülünü içe aktar
+from dotenv import load_dotenv
+import google.generativeai as genai
 
 # .env dosyasını yükle
 load_dotenv()
 
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": "*"}})
+CORS(app)
 
 # .env dosyasından API anahtarını al
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "default_api_key")
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+
+# Google Generative AI için yapılandırma
+genai.configure(api_key=GEMINI_API_KEY)
+
+generation_config = {
+    "temperature": 1,
+    "top_p": 0.95,
+    "top_k": 40,
+    "max_output_tokens": 8192,
+    "response_mime_type": "text/plain",
+}
+
+model = genai.GenerativeModel(
+    model_name="gemini-2.0-flash-exp",
+    generation_config=generation_config,
+)
 
 # /api/home endpoint'i (Tarifler)
 @app.route('/api/home', methods=['GET'])
@@ -34,54 +50,41 @@ def get_menu():
     except Exception as e:
         return jsonify({"error": "Menu verisi yüklenirken bir hata oluştu", "details": str(e)}), 500
 
-@app.route('/api/ai', methods=['POST', 'OPTIONS'])
-def proxy_gemini():
-    if request.method == 'OPTIONS':
-        return '', 204  # CORS için preflight izinleri
-
+# /api/ai endpoint'i (AI'den tarif oluşturma)
+@app.route('/api/ai', methods=['POST'])
+def get_ai():
     try:
-        # İstemciden gelen malzemeleri al
         data = request.get_json()
-        ingredients = data.get('ingredients', '')
-        if not ingredients:
-            return jsonify({"error": "Malzemeler eksik."}), 400
+        if not data or 'message' not in data:
+            return jsonify({"error": "Girdi boş veya 'message' alanı eksik."}), 400
 
-        # Prompt oluştur
-        prompt = f"""
-        Evde şu malzemelerle yapılabilecek yemek tariflerini öner: {ingredients}.
+        user_input = data['message']
+        chat_session = model.start_chat(history=[])
 
-        Her bir tarifi aşağıdaki JSON formatında döndür:
+        # AI modeline mesaj gönder
+        message = f"""
+        (Verdiğin çıktı JSON formatında olmalı ve şu şekilde olmalı:)
         {{
-        "recipes": [
-            {{
             "name": "Tarif Adı",
-            "ingredients": ["Malzeme 1", "Malzeme 2", "Malzeme 3"],
-            "instructions": "Tarifin hazırlanışı adım adım açıklanır."
-            }}
-        ]
+            "ingredients": ["malzeme1", "malzeme2"],
+            "instructions": "Tarif yapılışı"
         }}
-
-        Lütfen sadece yukarıdaki JSON formatında cevap ver ve başka bir açıklama ekleme.
+        Bu malzemelerle tarif oluştur: {user_input}
         """
+        response = chat_session.send_message(message)
 
-        # Gemini API çağrısı
-        gemini_url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={GEMINI_API_KEY}"
-        headers = {"Content-Type": "application/json"}
-        payload = {"contents": [{"parts": [{"text": prompt}]}]}
+        # Yanıtı işleyin ve JSON'a dönüştürün
+        raw_data = response.text.strip()
+        if raw_data.startswith("```json"):
+            raw_data = raw_data[7:]
+        if raw_data.endswith("```"):
+            raw_data = raw_data[:-3]
 
-        gemini_response = requests.post(gemini_url, headers=headers, json=payload)
+        recipe = json.loads(raw_data)
+        return jsonify(recipe)
 
-        if gemini_response.status_code != 200:
-            return jsonify({"error": "Gemini API çağrısı başarısız.", "details": gemini_response.text}), 500
-
-        gemini_data = gemini_response.json()
-        candidates = gemini_data.get('candidates', [])
-        if not candidates:
-            return jsonify({"error": "Tarif bulunamadı."}), 404
-
-        recipe_text = candidates[0].get('content', {}).get('parts', [{}])[0].get('text', '')
-        return jsonify({"recipe": recipe_text})
-
+    except json.JSONDecodeError as e:
+        return jsonify({"error": "Geçersiz JSON formatı", "details": str(e)}), 400
     except Exception as e:
         return jsonify({"error": "Bir hata oluştu", "details": str(e)}), 500
 

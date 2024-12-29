@@ -4,45 +4,39 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import React, { useState } from "react";
 
-const AiPage = () => {
-  const [ingredients, setIngredients] = useState(""); // Kullanıcının girdiği malzemeler
-  const [recipes, setRecipes] = useState<string | null>(null); // Tarif sonuçları
-  const [loading, setLoading] = useState(false); // Yüklenme durumu
-  const [error, setError] = useState<string | null>(null); // Hata mesajı
+// Tarif türü
+interface Recipe {
+  name: string;
+  ingredients: string[];
+  instructions: string;
+}
 
-  const findRecipes = async () => {
-    if (!ingredients.trim()) {
-      alert("Lütfen malzemeleri giriniz!");
-      return;
-    }
+const AiPage: React.FC = () => {
+  const [ingredients, setIngredients] = useState<string>(""); // Malzemeler string olarak tutulur
+  const [recipe, setRecipe] = useState<Recipe | null>(null); // Recipe ya null ya da Recipe türünde olabilir
+  const [error, setError] = useState<string | null>(null); // Hata mesajı için durum
 
-    setLoading(true);
-    setError(null);
-
+  const handleGenerateRecipe = async () => {
     try {
+      setError(null); // Önceki hatayı temizle
       const response = await fetch("http://localhost:8000/api/ai", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ingredients }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ message: ingredients }),
       });
 
       if (!response.ok) {
-        throw new Error(
-          `API çağrısı başarısız oldu: ${response.status} ${response.statusText}`
-        );
+        const errorData = await response.json();
+        throw new Error(errorData.error || "Tarif önerisi alınamadı!");
       }
 
-      const data = await response.json();
-      const recipe = data.recipe || "Tarif bulunamadı.";
-      setRecipes(recipe);
-    } catch (err) {
-      if (err instanceof Error) {
-        setError(err.message);
-      } else {
-        setError("Bilinmeyen bir hata oluştu.");
-      }
-    } finally {
-      setLoading(false);
+      const data: Recipe = await response.json(); // Gelen veri Recipe türünde olmalı
+      setRecipe(data);
+    } catch (error) {
+      setError((error as Error).message);
+      console.error("Hata oluştu:", (error as Error).message);
     }
   };
 
@@ -79,24 +73,32 @@ const AiPage = () => {
 
             <div className="flex justify-center mt-4">
               <button
-                onClick={findRecipes}
+                onClick={handleGenerateRecipe}
                 className="flex w-[200px] h-14 items-center justify-center rounded-lg bg-gradient-to-r from-orange-400 to-orange-600 text-white text-lg font-bold hover:from-orange-500 hover:to-orange-700 shadow-md transition-all duration-300"
-                disabled={loading}
               >
-                {loading ? "Yükleniyor..." : "Tarif Bul"}
+                Gönder
               </button>
             </div>
 
             {error && (
-              <div className="mt-4 text-red-600 font-medium">Hata: {error}</div>
+              <div className="text-red-500 text-lg mt-4">
+                <strong>Hata:</strong> {error}
+              </div>
             )}
 
-            {recipes && (
-              <div className="mt-8 w-full bg-[#fcfaf9] p-6 rounded-lg border border-[#e7dacf] shadow-md">
-                <h3 className="text-[#1b130d] text-2xl font-bold mb-4">
-                  Önerilen Tarifler:
-                </h3>
-                <p className="text-[#4a3f35] text-lg font-medium">{recipes}</p>
+            {recipe && (
+              <div className="mt-8 text-left">
+                <h3 className="text-[#1b130d] text-[24px] font-bold">Tarif:</h3>
+                <p className="text-[#4a3f35] text-lg font-medium mt-4">
+                  <strong>Adı:</strong> {recipe.name}
+                </p>
+                <p className="text-[#4a3f35] text-lg font-medium mt-2">
+                  <strong>Malzemeler:</strong>{" "}
+                  {recipe.ingredients.join(", ")}
+                </p>
+                <p className="text-[#4a3f35] text-lg font-medium mt-2">
+                  <strong>Yapılışı:</strong> {recipe.instructions}
+                </p>
               </div>
             )}
           </div>
