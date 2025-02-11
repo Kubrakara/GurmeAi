@@ -1,118 +1,32 @@
 {
-    "Çorba": [
-        {
-            "name": "Mercimek Çorbası",
-            "description": "Besleyici ve lezzetli bir çorba tarifi.",
-            "ingredients": ["1 su bardağı mercimek", "1 adet soğan", "2 yemek kaşığı salça"],
-            "steps": [
-              "Mercimeği yıkayıp süzün.",
-              "Soğanı kavurun, salçayı ekleyin.",
-              "Mercimeği ekleyip su ilave edin ve pişirin.",
-              "Blenderdan geçirip servis yapın."
-            ],
-            "image": "d.webp"
-        },
-        {
-            "name": "Domates Çorbası",
-            "description": "Taze domateslerle hazırlanan nefis bir çorba.",
-            "ingredients": ["4 adet domates", "1 adet soğan", "1 yemek kaşığı un"],
-            "steps": [
-              "Domatesleri rendeleyin.",
-              "Soğanı kavurun, unu ekleyin.",
-              "Domatesleri ekleyip su ilave edin ve pişirin.",
-                "Tuz ve baharatlarla tatlandırıp servis yapın."
-                ],
-            "image": "m.webp"
-        }       
-    
-    ],
-    "Ana Yemek": [
-        {
-            "name": "Köfte",
-            "description": "Kıyma ve baharatlarla hazırlanan nefis bir köfte tarifi.",
-            "ingredients": ["500 gr kıyma", "1 adet soğan", "1 yumurta"],
-            "steps": [
-                "Kıymayı ve soğanı karıştırın.",
-                "Baharatları ve yumurtayı ekleyip yoğurun.",
-                "Köfteleri şekil ver, tavada pişirin.",
-                "Sos ve garnitürle servis yapın."
-                ],
-            "image": "meatballs.jpg"
-        }
-        
-    ],
-    "Tatlı": [
-      {
-          "name": "Kadayıf",
-          "description": "Fıstıklı ve şerbetli nefis bir tatlı tarifi.",
-          "ingredients": ["1 paket kadayıf", "1 su bardağı fıstık", "1 su bardağı şeker"],
-          "steps": [
-              "Kadayıfı fırında kızartın.",
-              "Fıstığı ekleyip karıştırın.",
-              "Şerbeti hazırlayıp kadayıfın üzerine dökün.",
-              "Soğuyunca servis yapın."
-              ],
-            "image": "kadayif.jpg"
-        }
-    ],
-    "Salata": [
-     {
-            "name": "Çoban Salata",
-            "description": "Taze sebzelerle hazırlanan nefis bir salata tarifi.",
-            "ingredients": ["1 adet salatalık", "1 adet domates", "1 adet biber"],
-            "steps": [
-                "Salatalığı, domatesi ve biberi rendeleyin.",
-                "Tuz ve limonla tatlandırıp servis yapın."
-                ],
-            "image": "shepherd_salad.jpg"
-            }
-    ],
-    "Yan Yemek": [
+  "Çorba": [
     {
-        "name": "Pilav",
-        "description": "Pirinç ve baharatlarla hazırlanan nefis bir pilav tarifi.",
-        "ingredients": ["2 su bardağı pirinç", "1 yemek kaşığı tereyağı", "1 yemek kaşığı salça"],
-        "steps": [
-            "Pirinci yıkayıp süzün.",
-            "Tereyağında kavurun, salçayı ekleyin.",
-            "Pirinci ekleyip su ilave edin ve pişirin.",
-            "Tuz ve baharatla tatlandırıp servis yapın."
-            ],
-        "image": "pilaf.jpg"
+      "name": "Mercimek Çorbası",
+      "description": "Besleyici ve lezzetli bir çorba tarifi.",
+      "ingredients": [
+        "1 su bardağı mercimek",
+        "1 adet soğan",
+        "2 yemek kaşığı salça"
+      ],
+      "steps": [
+        "Mercimeği yıkayıp süzün.",
+        "Soğanı kavurun, salçayı ekleyin.",
+        "Mercimeği ekleyip su ilave edin ve pişirin.",
+        "Blenderdan geçirip servis yapın."
+      ],
+      "image": "d.webp"
+    },
+    {
+      "name": "Domates Çorbası",
+      "description": "Taze domateslerle hazırlanan nefis bir çorba.",
+      "ingredients": ["4 adet domates", "1 adet soğan", "1 yemek kaşığı un"],
+      "steps": [
+        "Domatesleri rendeleyin.",
+        "Soğanı kavurun, unu ekleyin.",
+        "Domatesleri ekleyip su ilave edin ve pişirin.",
+        "Tuz ve baharatlarla tatlandırıp servis yapın."
+      ],
+      "image": "m.webp"
     }
-    ],
-    "Ara Öğün": [
-        {
-            "name": "Meyve Salatası",
-            "description": "Taze meyvelerle hazırlanan nefis bir meyve salatası tarifi.",
-            "ingredients": ["1 adet elma", "1 adet muz", "1 adet portakal"],
-            "steps": [
-                "Elmayı, muzu ve portakalı rendeleyin.",
-                "Tuz ve limonla tatlandırıp servis yapın."
-                ],
-            "image": "fruit_salad.jpg"
-        }
-      
-    ],
-        "Atıştırmalık": [
-          {
-            "name": "Kurabiye",
-            "description": "Un ve tereyağı ile hazırlanan nefis bir kurabiye tarifi.",
-            "ingredients": ["2 su bardağı un", "1 su bardağı tereyağı", "1 su bardağı şeker"],
-            "steps": [
-              "Unu, tereyağını ve şekeri karıştırın.",
-              "Hamuru yoğurup şekil verin.",
-              "Fırında pişirip soğuyunca servis yapın"
-            ],
-            "image": "cookie.jpg"
-          }
-        ]
-      }
-  
-
-
-
-
-
-
-
+  ]
+}
