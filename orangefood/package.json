@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@google/generative-ai": "^0.21.0",
     "gsap": "^3.12.5",
     "jspdf": "^2.5.2",
     "keen-slider": "^6.8.6",
