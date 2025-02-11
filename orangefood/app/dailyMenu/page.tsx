@@ -162,7 +162,6 @@ export default function Menu() {
           >
             📝 Eksik Malzemeleri PDF Olarak İndir
           </button>
-          
         </div>
       </div>
 

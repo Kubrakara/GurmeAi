@@ -34,7 +34,7 @@ export default function Menu() {
           {
             title: "Günün Menüsü",
             image: "dailymenu.webp",
-            link: "/dailyMenu",
+            link: "/dailymenu",
           },
         ].map((item) => (
           <div
