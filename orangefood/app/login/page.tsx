@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
+import React, { useEffect, useRef } from "react";
+import { gsap } from "gsap";
 
 const LoginPage = () => {
   const containerRef = useRef<HTMLDivElement>(null); // Giriş ekranı için referans
@@ -13,7 +13,7 @@ const LoginPage = () => {
         opacity: 0, // Şeffaflıktan başlar
         scale: 0.9, // Biraz küçülerek başlar
         duration: 0.6, // Daha hızlı animasyon için kısa süre
-        ease: 'power1.out', // Yumuşak bir animasyon
+        ease: "power1.out", // Yumuşak bir animasyon
       });
     }
   }, []);
@@ -21,7 +21,7 @@ const LoginPage = () => {
   return (
     <div
       className="h-screen bg-cover bg-center flex items-center justify-center"
-      style={{ backgroundImage: 'url(arkaplan.webp)' }}
+      style={{ backgroundImage: "url(arkaplan.webp)" }}
     >
       <div
         ref={containerRef}
@@ -65,14 +65,7 @@ const LoginPage = () => {
           <span className="px-2 text-gray-400 text-sm">veya</span>
           <hr className="flex-grow border-gray-600" />
         </div>
-        <button
-          className="w-full bg-white text-black py-2 rounded-lg flex items-center justify-center gap-2 font-semibold hover:bg-gray-100 transition duration-300"
-        >
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
-            alt="Google logo"
-            className="w-5 h-5"
-          />
+        <button className="w-full bg-white text-black py-2 rounded-lg flex items-center justify-center gap-2 font-semibold hover:bg-gray-100 transition duration-300">
           Google ile Giriş Yap
         </button>
       </div>

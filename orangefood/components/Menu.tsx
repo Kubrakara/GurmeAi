@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import React from "react";
 import { useRouter } from "next/navigation";
@@ -20,32 +20,34 @@ export default function Menu() {
 
       {/* Kartlar */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 mx-12 ">
-        {[{
-          title: "Tarif Oluşturun",
-          image: "resim1.png",
-          link: "/ai",
-        },
-        {
-          title: "Geleneksel Tarifler",
-          image: "d.webp",
-          link: "/recipes",
-        },
-        {
-          title: "Günün Menüsü",
-          image: "dailymenu.webp",
-          link: "/dailyMenu",
-        }].map((item) => (
+        {[
+          {
+            title: "Tarif Oluşturun",
+            image: "resim1.png",
+            link: "/ai",
+          },
+          {
+            title: "Geleneksel Tarifler",
+            image: "d.webp",
+            link: "/recipes",
+          },
+          {
+            title: "Günün Menüsü",
+            image: "dailymenu.webp",
+            link: "/dailyMenu",
+          },
+        ].map((item) => (
           <div
             key={item.title}
             className="relative group rounded-lg overflow-hidden shadow-xl transition-transform duration-300 hover:scale-105 bg-white"
           >
             {/* Resim */}
             <div className="w-full h-96 sm:h-[30rem] md:h-[36rem] overflow-hidden">
-              <img
+              {/* <img
                 src={item.image}
                 alt={item.title}
                 className="w-full h-full object-cover"
-              />
+              /> */}
             </div>
 
             {/* İçerik */}

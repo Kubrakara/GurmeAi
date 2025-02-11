@@ -148,11 +148,11 @@ const RecipesPage = () => {
             >
               ✕
             </button>
-            <img
+            {/* <img
               src={selectedRecipe.image}
               alt={selectedRecipe.name}
               className="w-full h-40 object-cover rounded-md mb-4"
-            />
+            /> */}
             <h2 className="text-[#1b130d] text-xl font-bold mb-2">
               {selectedRecipe.name}
             </h2>
