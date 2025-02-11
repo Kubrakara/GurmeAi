@@ -49,15 +49,21 @@ export async function POST(req: Request) {
       recipe = JSON.parse(jsonString);
     } catch (error) {
       return NextResponse.json(
-        { error: "AI yanıtı geçersiz JSON formatında.", details: error },
+        {
+          error: "AI yanıtı geçersiz JSON formatında.",
+          details: (error as Error).message,
+        },
         { status: 400 }
       );
     }
 
     return NextResponse.json(recipe);
-  } catch (error: any) {
+  } catch (error: unknown) {
+    // 🛠️ `any` yerine `unknown` kullanıldı
+    const errorMessage =
+      error instanceof Error ? error.message : "Bilinmeyen bir hata oluştu.";
     return NextResponse.json(
-      { error: "Bir hata oluştu", details: error.message },
+      { error: "Bir hata oluştu", details: errorMessage },
       { status: 500 }
     );
   }
