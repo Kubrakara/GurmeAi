@@ -2,6 +2,7 @@
 
 import React from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 export default function Menu() {
   const router = useRouter();
@@ -43,7 +44,7 @@ export default function Menu() {
           >
             {/* Resim */}
             <div className="w-full h-96 sm:h-[30rem] md:h-[36rem] overflow-hidden">
-              <img
+              <Image
                 src={item.image}
                 alt={item.title}
                 className="w-full h-full object-cover"

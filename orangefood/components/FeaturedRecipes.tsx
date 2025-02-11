@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 interface Recipe {
   name: string;
   image: string;
@@ -28,7 +30,7 @@ export default function FeaturedRecipes() {
             className="flex flex-col items-center text-center gap-4 transition-transform duration-200 hover:scale-105"
           >
             <div className="w-40 h-40 overflow-hidden rounded-xl shadow-md ">
-              <img
+              <Image
                 src={recipe.image}
                 alt={recipe.name}
                 className="w-full h-full object-cover"
