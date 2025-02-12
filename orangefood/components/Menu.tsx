@@ -20,21 +20,21 @@ export default function Menu() {
       </div>
 
       {/* Kartlar */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 mx-12 ">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 mx-12">
         {[
           {
             title: "Tarif Oluşturun",
-            image: "resim1.png",
+            image: "/resim1.png", // Ensure the image is placed in the public folder
             link: "/ai",
           },
           {
             title: "Geleneksel Tarifler",
-            image: "d.webp",
+            image: "/d.webp", // Ensure the image is placed in the public folder
             link: "/recipes",
           },
           {
             title: "Günün Menüsü",
-            image: "dailymenu.webp",
+            image: "/dailymenu.webp", // Ensure the image is placed in the public folder
             link: "/dailymenu",
           },
         ].map((item) => (
@@ -43,11 +43,14 @@ export default function Menu() {
             className="relative group rounded-lg overflow-hidden shadow-xl transition-transform duration-300 hover:scale-105 bg-white"
           >
             {/* Resim */}
-            <div className="w-full h-96 sm:h-[30rem] md:h-[36rem] overflow-hidden">
+            <div className="w-full h-96 sm:h-[30rem] md:h-[36rem] relative">
               <Image
                 src={item.image}
                 alt={item.title}
-                className="w-full h-full object-cover"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                priority
               />
             </div>
 
