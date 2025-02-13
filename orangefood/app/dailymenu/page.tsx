@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import jsPDF from "jspdf";
 
 interface Ingredient {
   name: string;
@@ -23,7 +22,6 @@ interface MenuData {
 
 export default function Menu() {
   const [menuData, setMenuData] = useState<MenuData | null>(null);
-  const [checkedItems, setCheckedItems] = useState<string[]>([]);
 
   useEffect(() => {
     const fetchMenu = async () => {
@@ -42,62 +40,14 @@ export default function Menu() {
     fetchMenu();
   }, []);
 
-  const handleCheckboxChange = (ingredient: string) => {
-    setCheckedItems((prev) =>
-      prev.includes(ingredient)
-        ? prev.filter((item) => item !== ingredient)
-        : [...prev, ingredient]
-    );
-  };
-
-  const getAllMissingIngredients = () => {
-    return (
-      menuData?.items
-        .map((item) => ({
-          category: item.category,
-          name: item.name,
-          missingIngredients: item.ingredients.filter(
-            (ingredient) => !checkedItems.includes(ingredient.name)
-          ),
-        }))
-        .filter((item) => item.missingIngredients.length > 0) || []
-    );
-  };
-
-  const downloadShoppingList = () => {
-    const doc = new jsPDF();
-    doc.setFont("Helvetica", "normal");
-    doc.setFontSize(16);
-
-    doc.text("🛒 Alışveriş Listesi", 20, 20);
-
-    const allMissingIngredients = getAllMissingIngredients();
-    let yPosition = 30;
-
-    allMissingIngredients.forEach((item) => {
-      doc.text(`📋 ${item.category}: ${item.name}`, 20, yPosition);
-      yPosition += 8;
-
-      item.missingIngredients.forEach((ingredient) => {
-        doc.text(
-          `- ${ingredient.name} (Alternatif: ${ingredient.alternative})`,
-          25,
-          yPosition
-        );
-        yPosition += 8;
-      });
-
-      yPosition += 4;
-    });
-
-    doc.save("alisveris_listesi.pdf");
-  };
-
   if (!menuData) {
     return (
-      <div className="flex items-center justify-center min-h-screen">
-        <p className="text-lg font-semibold text-gray-700">Yükleniyor...</p>
-      </div>
+      <>
+        <Header />
+        <div className="flex items-center justify-center min-h-screen">
+          <p className="text-lg font-semibold text-gray-700">Yükleniyor...</p>
+        </div>
+      </>
     );
   }
 
@@ -136,32 +86,17 @@ export default function Menu() {
               <ul className="list-none space-y-2">
                 {item.ingredients.map((ingredient, idx) => (
                   <li key={idx} className="flex items-center gap-4">
-                    <input
-                      type="checkbox"
-                      className="w-5 h-5 cursor-pointer"
-                      checked={checkedItems.includes(ingredient.name)}
-                      onChange={() => handleCheckboxChange(ingredient.name)}
-                    />
                     <div className="flex-1 text-[#423b32] font-medium">
                       {ingredient.name}
-                      {!checkedItems.includes(ingredient.name) && (
-                        <span className="text-[#744d30] text-sm ml-2">
-                          (Alternatif: {ingredient.alternative})
-                        </span>
-                      )}
+                      <span className="text-[#744d30] text-sm ml-2">
+                        (Alternatif: {ingredient.alternative})
+                      </span>
                     </div>
                   </li>
                 ))}
               </ul>
             </div>
           ))}
-
-          <button
-            onClick={downloadShoppingList}
-            className="mt-4 px-6 py-3 rounded-lg bg-orange-500 text-white font-semibold hover:bg-orange-600 transition-all duration-200"
-          >
-            📝 Eksik Malzemeleri PDF Olarak İndir
-          </button>
         </div>
       </div>
 

@@ -1,3 +1,4 @@
+import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import React from "react";
 
@@ -5,7 +6,15 @@ const AboutPage = () => {
   return (
     <>
       <Header />
-      <div className="min-h-screen bg-orange-400 flex items-center justify-center">
+      <div
+        className="min-h-screen flex items-center justify-center"
+        style={{
+          fontFamily: "Epilogue, 'Noto Sans', sans-serif",
+          background: "url('/dailymenu.webp')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
         <div className="bg-white p-10 rounded-2xl shadow-xl w-3/4">
           <h1 className="text-4xl font-bold text-center text-orange-500 mb-6">
             Hakkında
@@ -41,6 +50,7 @@ const AboutPage = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 };
