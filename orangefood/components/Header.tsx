@@ -65,7 +65,7 @@ export default function Header() {
               Giriş Yap
             </button>
           </Link>
-          <Link href="/login">
+          <Link href="/signup">
             <button className="h-10 px-4 rounded-xl bg-[#ee7f2b] text-white text-sm font-bold shadow-md hover:bg-[#d76d1c] transition duration-200">
               Kayıt Ol
             </button>
@@ -135,7 +135,7 @@ export default function Header() {
               Giriş Yap
             </button>
           </Link>
-          <Link href="/login">
+          <Link href="/signup">
             <button className="h-10 px-4 rounded-xl bg-[#ee7f2b] text-white text-sm font-bold shadow-md hover:bg-[#d76d1c] transition duration-200">
               Kayıt Ol
             </button>
