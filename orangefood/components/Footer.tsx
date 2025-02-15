@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const Footer = () => {
   return (
@@ -6,7 +7,13 @@ const Footer = () => {
       <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
         {/* Logo ve Açıklama */}
         <div className="flex items-center gap-3">
-          <img src="/chef-hat.png" alt="GurmeAi Logo" className="w-10 h-10" />
+          <Image
+            src="/chef-hat.png"
+            alt="GurmeAi Logo"
+            width={40}
+            height={40}
+            priority
+          />
           <div>
             <h2 className="text-xl font-bold text-orange-700">GurmeAi</h2>
             <p className="text-sm text-gray-700">

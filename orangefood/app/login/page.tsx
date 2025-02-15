@@ -15,8 +15,12 @@ const LoginPage = () => {
       await signInWithEmailAndPassword(auth, email, password);
       alert("Giriş başarılı!");
       router.push("/"); // Kullanıcı giriş yaptıktan sonra yönlendirme
-    } catch (error: any) {
-      alert(`Hata: ${error.message}`);
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        alert(`Hata: ${error.message}`);
+      } else {
+        alert("Bilinmeyen bir hata oluştu.");
+      }
     }
   };
 

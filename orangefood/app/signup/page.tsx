@@ -20,8 +20,12 @@ const SignUpPage = () => {
       await createUserWithEmailAndPassword(auth, email, password);
       alert("Kayıt başarılı!");
       router.push("/login"); // Kayıt sonrası login sayfasına yönlendir
-    } catch (error: any) {
-      alert(`Hata: ${error.message}`);
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        alert(`Hata: ${error.message}`);
+      } else {
+        alert("Bilinmeyen bir hata oluştu.");
+      }
     }
   };
 
