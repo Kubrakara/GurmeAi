@@ -27,9 +27,12 @@ export default function Header() {
       <div className="flex items-center gap-3">
         <div className="w-12 h-12">
           <Image
-            src="chef-hat.png"
-            alt="logo"
+            src="/chef-hat.png"
+            alt="Logo"
             className="w-full h-full object-contain"
+            width={40}
+            height={40}
+            priority
           />
         </div>
         <Link href="/">
