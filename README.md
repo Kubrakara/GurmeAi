@@ -31,7 +31,7 @@ GurmeAI, yapay zeka destekli bir yemek tarifi web sitesidir. Kullanıcılar favo
 
 ## 📷 Ekran Görüntüleri
 
-![image](https://github.com/user-attachments/assets/05556c6e-3cb6-43e4-b91a-e86c74d41cd2)
+![image](https://github.com/user-attachments/assets/b81975f8-17ba-4ac2-993e-8f913013ecd6)
 ![image](https://github.com/user-attachments/assets/4474c71c-b800-46a5-a3fa-26324c2a436a)
 ![image](https://github.com/user-attachments/assets/086aed42-2286-42f0-996c-212713c25690)
 
