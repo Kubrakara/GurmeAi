@@ -26,7 +26,7 @@ export default function Header() {
     <header className="flex items-center justify-between bg-white px-6 py-4 text-[#1b130d] shadow-md relative">
       <div className="flex items-center gap-3">
         <div className="w-12 h-12">
-          <img
+          <Image
             src="chef-hat.png"
             alt="logo"
             className="w-full h-full object-contain"

@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const Footer = () => {
   return (
     <footer className="bg-gradient-to-r from-[#ffffff] to-[#f5e5da] text-[#1b130d] py-6 shadow-inner">
@@ -16,44 +18,44 @@ const Footer = () => {
         {/* Hızlı Menü */}
         <ul className="flex flex-wrap gap-4 mt-4 md:mt-0 text-sm">
           <li>
-            <a
+            <Link
               href="/"
               className="hover:text-orange-600 transition-colors duration-300"
             >
               Anasayfa
-            </a>
+            </Link>
           </li>
           <li>
-            <a
+            <Link
               href="/ai"
               className="hover:text-orange-600 transition-colors duration-300"
             >
               Yapay Zeka Tarifleri
-            </a>
+            </Link>
           </li>
           <li>
-            <a
+            <Link
               href="/recipes"
               className="hover:text-orange-600 transition-colors duration-300"
             >
               Geleneksel Tarifler
-            </a>
+            </Link>
           </li>
           <li>
-            <a
+            <Link
               href="/dailymenu"
               className="hover:text-orange-600 transition-colors duration-300"
             >
               Günün Menüsü
-            </a>
+            </Link>
           </li>
           <li>
-            <a
+            <Link
               href="/about"
               className="hover:text-orange-600 transition-colors duration-300"
             >
               Hakkında
-            </a>
+            </Link>
           </li>
         </ul>
 
