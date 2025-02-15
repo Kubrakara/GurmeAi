@@ -3,6 +3,7 @@
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import React, { useState } from "react";
+import FirebaseAuthGuard from "@/lib/firebaseAuthGuard";
 
 // Tarif türü
 interface Recipe {
@@ -45,7 +46,7 @@ const AiPage: React.FC = () => {
   };
 
   return (
-    <>
+    <FirebaseAuthGuard>
       <div
         className="relative flex size-full min-h-screen flex-col bg-cover bg-center overflow-x-hidden"
         style={{
@@ -118,7 +119,7 @@ const AiPage: React.FC = () => {
         </div>
       </div>
       <Footer />
-    </>
+    </FirebaseAuthGuard>
   );
 };
 

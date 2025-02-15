@@ -1,25 +1,33 @@
 "use client";
 import Header from "@/components/Header";
 import React, { useState, FormEvent } from "react";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "@/lib/firebaseConfig";
+import { useRouter } from "next/navigation";
 
 const SignUpPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const router = useRouter();
 
-  const handleSignUp = (e: FormEvent) => {
+  const handleSignUp = async (e: FormEvent) => {
     e.preventDefault();
     if (password !== confirmPassword) {
       alert("Şifreler eşleşmiyor!");
       return;
     }
-    // Kayıt olma işlemleri burada gerçekleştirilir
-    console.log("Kayıt olundu: ", email, password);
+    try {
+      await createUserWithEmailAndPassword(auth, email, password);
+      alert("Kayıt başarılı!");
+      router.push("/login"); // Kayıt sonrası login sayfasına yönlendir
+    } catch (error: any) {
+      alert(`Hata: ${error.message}`);
+    }
   };
 
   return (
     <>
-      <Header />
       <div className="min-h-screen flex items-center justify-center bg-orange-400">
         <div className="bg-white p-8 rounded-2xl shadow-xl w-96">
           <h2 className="text-3xl font-bold text-center text-orange-500 mb-6">

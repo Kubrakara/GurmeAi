@@ -6,13 +6,13 @@ import HeroSlider from "@/components/HeroSlider";
 
 export default function Home() {
   return (
-    <div className=" min-h-screen flex flex-col"
-        style={
-          {backgroundImage: "url('')",}
-        }>
+    <div
+      className=" min-h-screen flex flex-col"
+      style={{ backgroundImage: "url('')" }}
+    >
       {/* Header */}
       <Header />
-    
+
       <HeroSlider />
       {/* Menu Bölümü */}
       <section className="py-10">
@@ -30,4 +30,4 @@ export default function Home() {
       </section>
     </div>
   );
-} 
+}

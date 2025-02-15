@@ -1,28 +1,44 @@
 "use client";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
+import { auth } from "@/lib/firebaseConfig";
+import { onAuthStateChanged, signOut } from "firebase/auth";
+import Image from "next/image";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const pathname = usePathname();
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      setIsAuthenticated(!!user);
+    });
+    return () => unsubscribe();
+  }, []);
+
+  const handleLogout = async () => {
+    await signOut(auth);
+  };
 
   return (
     <header className="flex items-center justify-between bg-white px-6 py-4 text-[#1b130d] shadow-md relative">
-      {/* Logo */}
-      <div className="flex items-center gap-4">
-        <div className="size-4 text-[#1b130d]">
-          <svg
-            viewBox="0 0 48 48"
-            fill="currentColor"
-            xmlns="http://www.w3.org/2000/svg"
-            className="w-6 h-6"
-          >
-            <path d="M24 4C25.7818 14.2173 33.7827 22.2182 44 24C33.7827 25.7818 25.7818 33.7827 24 44C22.2182 33.7827 14.2173 25.7818 4 24C14.2173 22.2182 22.2183 14.2173 24 4Z" />
-          </svg>
+      <div className="flex items-center gap-3">
+        <div className="w-12 h-12">
+          <img
+            src="chef-hat.png"
+            alt="logo"
+            className="w-full h-full object-contain"
+          />
         </div>
         <Link href="/">
-          <h2 className="text-lg font-bold">OrangeFood</h2>
+          <h2
+            className="text-2xl font-bold text-orange-700 tracking-wide"
+            style={{ fontFamily: "Dancing Script, cursive" }}
+          >
+            GurmeAi
+          </h2>
         </Link>
       </div>
 
@@ -87,18 +103,29 @@ export default function Header() {
           Hakkında
         </Link>
 
-        <div className="flex space-x-4">
-          <Link href="/login">
-            <button className="h-10 px-4 rounded-xl bg-[#f3ece7] text-[#1b130d] text-sm font-bold shadow-md hover:bg-[#e6dcd6] transition duration-200">
-              Giriş Yap
-            </button>
-          </Link>
-          <Link href="/signup">
-            <button className="h-10 px-4 rounded-xl bg-[#ee7f2b] text-white text-sm font-bold shadow-md hover:bg-[#d76d1c] transition duration-200">
-              Kayıt Ol
-            </button>
-          </Link>
-        </div>
+        {!isAuthenticated && (
+          <div className="flex space-x-4">
+            <Link href="/login">
+              <button className="h-10 px-4 rounded-xl bg-[#f3ece7] text-[#1b130d] text-sm font-bold shadow-md hover:bg-[#e6dcd6] transition duration-200">
+                Giriş Yap
+              </button>
+            </Link>
+            <Link href="/signup">
+              <button className="h-10 px-4 rounded-xl bg-[#ee7f2b] text-white text-sm font-bold shadow-md hover:bg-[#d76d1c] transition duration-200">
+                Kayıt Ol
+              </button>
+            </Link>
+          </div>
+        )}
+
+        {isAuthenticated && (
+          <button
+            onClick={handleLogout}
+            className="h-10 px-4 rounded-xl bg-red-500 text-white text-sm font-bold shadow-md hover:bg-red-600 transition duration-200"
+          >
+            Çıkış Yap
+          </button>
+        )}
       </nav>
 
       {/* Side Navigation Menu for Mobile */}
@@ -167,18 +194,31 @@ export default function Header() {
           </li>
         </ul>
 
-        <div className="flex flex-col space-y-3 mt-6">
-          <Link href="/login">
-            <button className="h-10 px-4 rounded-xl bg-[#f3ece7] text-[#1b130d] text-sm font-bold shadow-md hover:bg-[#e6dcd6] transition duration-200">
-              Giriş Yap
+        {!isAuthenticated && (
+          <div className="flex flex-col space-y-3 mt-6">
+            <Link href="/login">
+              <button className="h-10 px-4 rounded-xl bg-[#f3ece7] text-[#1b130d] text-sm font-bold shadow-md hover:bg-[#e6dcd6] transition duration-200">
+                Giriş Yap
+              </button>
+            </Link>
+            <Link href="/signup">
+              <button className="h-10 px-4 rounded-xl bg-[#ee7f2b] text-white text-sm font-bold shadow-md hover:bg-[#d76d1c] transition duration-200">
+                Kayıt Ol
+              </button>
+            </Link>
+          </div>
+        )}
+
+        {isAuthenticated && (
+          <div className="flex flex-col space-y-3 mt-6">
+            <button
+              onClick={handleLogout}
+              className="h-10 px-4 rounded-xl bg-red-500 text-white text-sm font-bold shadow-md hover:bg-red-600 transition duration-200"
+            >
+              Çıkış Yap
             </button>
-          </Link>
-          <Link href="/signup">
-            <button className="h-10 px-4 rounded-xl bg-[#ee7f2b] text-white text-sm font-bold shadow-md hover:bg-[#d76d1c] transition duration-200">
-              Kayıt Ol
-            </button>
-          </Link>
-        </div>
+          </div>
+        )}
       </nav>
 
       {/* Overlay */}

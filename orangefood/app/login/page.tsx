@@ -1,23 +1,43 @@
+"use client";
 import Header from "@/components/Header";
-import React from "react";
+import React, { useState, FormEvent } from "react";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "@/lib/firebaseConfig";
+import { useRouter } from "next/navigation";
 
 const LoginPage = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const router = useRouter();
+
+  const handleLogin = async (e: FormEvent) => {
+    e.preventDefault();
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      alert("Giriş başarılı!");
+      router.push("/"); // Kullanıcı giriş yaptıktan sonra yönlendirme
+    } catch (error: any) {
+      alert(`Hata: ${error.message}`);
+    }
+  };
+
   return (
     <>
-      <Header />
       <div className="min-h-screen flex items-center justify-center bg-orange-400">
         <div className="bg-white p-8 rounded-2xl shadow-xl w-96">
           <h2 className="text-3xl font-bold text-center text-orange-500 mb-6">
             OrangeFood Giriş Yap
           </h2>
-          <form className="space-y-4">
+          <form className="space-y-4" onSubmit={handleLogin}>
             <div>
               <label className="block mb-2 text-gray-700" htmlFor="email">
                 Email
-              </label> 
+              </label>
               <input
                 id="email"
                 type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400"
                 placeholder="Email adresinizi girin"
                 required
@@ -30,6 +50,8 @@ const LoginPage = () => {
               <input
                 id="password"
                 type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400"
                 placeholder="Şifrenizi girin"
                 required
@@ -44,7 +66,7 @@ const LoginPage = () => {
           </form>
           <p className="mt-4 text-center text-sm text-gray-600">
             Henüz hesabınız yok mu?{" "}
-            <a href="/register" className="text-orange-500 hover:underline">
+            <a href="/signup" className="text-orange-500 hover:underline">
               Kayıt Ol
             </a>
           </p>
