@@ -37,9 +37,9 @@ GurmeAI, yapay zeka destekli bir yemek tarifi web sitesidir. Kullanıcılar favo
 
 ## 🛠️ Teknolojiler
 
-- **Frontend:** React / Next.js *(hangi framework'ü kullandıysanız belirtin)*
-- **Backend:** Next.js TypeScript *(hangi backend teknolojisini kullandıysanız ekleyin)*
-- **Veritabanı:** Firebase / PostgreSQL / Firebase *(veritabanı seçiminizi ekleyin)*
+- **Frontend:** React / Next.js 
+- **Backend:** Next.js TypeScript 
+- **Veritabanı:** Firebase / PostgreSQL / Firebase 
 
 ## 📝 Katkıda Bulunma
 
