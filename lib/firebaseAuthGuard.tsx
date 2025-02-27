@@ -12,7 +12,7 @@ const FirebaseAuthGuard = ({ children }: { children: React.ReactNode }) => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (!user) {
-        router.push("/login");
+        router.push("/signin");
       } else {
         setLoading(false);
       }

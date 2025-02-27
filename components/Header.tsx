@@ -108,7 +108,7 @@ export default function Header() {
 
         {!isAuthenticated && (
           <div className="flex space-x-4">
-            <Link href="/login">
+            <Link href="/signin">
               <button className="h-10 px-4 rounded-xl bg-[#f3ece7] text-[#1b130d] text-sm font-bold shadow-md hover:bg-[#e6dcd6] transition duration-200">
                 Giriş Yap
               </button>
@@ -199,7 +199,7 @@ export default function Header() {
 
         {!isAuthenticated && (
           <div className="flex flex-col space-y-3 mt-6">
-            <Link href="/login">
+            <Link href="/signin">
               <button className="h-10 px-4 rounded-xl bg-[#f3ece7] text-[#1b130d] text-sm font-bold shadow-md hover:bg-[#e6dcd6] transition duration-200">
                 Giriş Yap
               </button>

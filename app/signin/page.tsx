@@ -99,6 +99,12 @@ export default function LoginPage() {
             </button>
           </Link>
         </div>
+        <div className="text-[#9b703c] mt-4 text-sm sm:text-base">
+          Don't have an account?
+          <Link href="/signup" className="text-[#9b8161] hover:underline ml-1">
+            Sign Up
+          </Link>
+        </div>
       </div>
     </div>
   );
