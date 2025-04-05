@@ -3,6 +3,7 @@
 import "./globals.css";
 import Head from "next/head";
 import { useEffect } from "react";
+import { Analytics } from "@vercel/analytics/react";
 
 export default function RootLayout({
   children,
@@ -37,7 +38,10 @@ export default function RootLayout({
           crossOrigin="anonymous"
         ></script>
       </Head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
