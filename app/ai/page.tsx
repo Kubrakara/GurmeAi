@@ -4,16 +4,16 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import React, { useState } from "react";
 
-// Tarif türü
 interface Recipe {
   name: string;
+  type?: string;
   ingredients: string[];
   instructions: string;
 }
 
 const AiPage: React.FC = () => {
   const [ingredients, setIngredients] = useState<string>("");
-  const [recipe, setRecipe] = useState<Recipe | null>(null);
+  const [recipes, setRecipes] = useState<Recipe[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
 
@@ -23,9 +23,7 @@ const AiPage: React.FC = () => {
       setLoading(true);
       const response = await fetch("/api/aiapi", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: ingredients }),
       });
 
@@ -34,8 +32,8 @@ const AiPage: React.FC = () => {
         throw new Error(errorData.error || "Tarif önerisi alınamadı!");
       }
 
-      const data: Recipe = await response.json();
-      setRecipe(data);
+      const data = await response.json();
+      setRecipes(data.recipes);
     } catch (error) {
       setError((error as Error).message);
       console.error("Hata oluştu:", (error as Error).message);
@@ -96,20 +94,43 @@ const AiPage: React.FC = () => {
               </div>
             )}
 
-            {recipe && (
-              <div className="mt-8 text-left w-full bg-[#fef9f4] p-5 rounded-lg shadow-md">
-                <h3 className="text-[#1b130d] text-[24px] font-bold mb-2">
-                  🍽️ Tarif:
-                </h3>
-                <p className="text-[#4a3f35] text-lg font-medium mb-2">
-                  <strong>Adı:</strong> {recipe.name}
-                </p>
-                <p className="text-[#4a3f35] text-lg font-medium mb-2">
-                  <strong>Malzemeler:</strong> {recipe.ingredients.join(", ")}
-                </p>
-                <p className="text-[#4a3f35] text-lg font-medium mb-2">
-                  <strong>Yapılışı:</strong> {recipe.instructions}
-                </p>
+            {recipes.length > 0 && (
+              <div className="mt-8 w-full space-y-6">
+                {recipes.map((recipe, index) => (
+                  <div
+                    key={index}
+                    className="text-left w-full bg-[#fef9f4] p-5 rounded-lg shadow-md"
+                  >
+                    <h3 className="text-[#1b130d] text-[24px] font-bold mb-2">
+                      🍽️ {recipe.type || `Tarif ${index + 1}`}
+                    </h3>
+
+                    <p className="text-[#4a3f35] text-lg font-medium mb-2">
+                      <strong>Adı:</strong> {recipe.name}
+                    </p>
+
+                    <div className="text-[#4a3f35] text-lg font-medium mb-2">
+                      <strong>Malzemeler:</strong>
+                      <ul className="list-disc list-inside mt-1 ml-4">
+                        {recipe.ingredients.map((item, i) => (
+                          <li key={i}>{item}</li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <div className="text-[#4a3f35] text-lg font-medium mb-2">
+                      <strong>Yapılışı:</strong>
+                      <ol className="list-decimal list-inside mt-1 ml-4">
+                        {recipe.instructions
+                          .split(/(?:\d+\.\s)/)
+                          .filter((step) => step.trim() !== "")
+                          .map((step, i) => (
+                            <li key={i}>{step.trim()}</li>
+                          ))}
+                      </ol>
+                    </div>
+                  </div>
+                ))}
               </div>
             )}
           </div>
