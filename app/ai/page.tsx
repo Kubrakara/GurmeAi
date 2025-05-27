@@ -34,6 +34,26 @@ const AiPage: React.FC = () => {
 
       const data = await response.json();
       setRecipes(data.recipes);
+
+      // TARİFLERİ OTOMATİK OLARAK GÖNDER
+      await Promise.all(
+        data.recipes.map((recipe: Recipe) =>
+          fetch("/api/customrecipes", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              name: recipe.name,
+              description: "Yapay zeka tarafından oluşturulmuştur.",
+              ingredients: recipe.ingredients,
+              steps: recipe.instructions
+                .split(/(?:\d+\.\s)/)
+                .filter((s) => s.trim() !== ""),
+              image: "/default.jpg",
+              category: "Geleneksel", // sabit kategori
+            }),
+          })
+        )
+      );
     } catch (error) {
       setError((error as Error).message);
       console.error("Hata oluştu:", (error as Error).message);
