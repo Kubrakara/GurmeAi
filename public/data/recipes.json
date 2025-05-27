@@ -19,7 +19,11 @@
     {
       "name": "Domates Çorbası",
       "description": "Taze domateslerle hazırlanan nefis bir çorba.",
-      "ingredients": ["4 adet domates", "1 adet soğan", "1 yemek kaşığı un"],
+      "ingredients": [
+        "4 adet domates",
+        "1 adet soğan",
+        "1 yemek kaşığı un"
+      ],
       "steps": [
         "Domatesleri rendeleyin.",
         "Soğanı kavurun, unu ekleyin.",
@@ -27,6 +31,344 @@
         "Tuz ve baharatlarla tatlandırıp servis yapın."
       ],
       "image": "m.webp"
+    }
+  ],
+  "Minimal": [
+    {
+      "name": "Fırında Patatesli Tavuk",
+      "description": "Yapay zeka ile oluşturulmuş tarif.",
+      "ingredients": [
+        "🍗 2 adet tavuk but",
+        "🥔 2 adet patates"
+      ],
+      "steps": [
+        "Patatesleri soyup küp küp doğrayın. ",
+        "Tavuk butları ve patatesleri fırın tepsisine yerleştirin. ",
+        "Önceden ısıtılmış 180 derece fırında tavuklar pişene kadar yaklaşık 45 dakika pişirin."
+      ],
+      "image": "/default.jpg",
+      "category": "Minimal"
+    }
+  ],
+  "Geleneksel": [
+    {
+      "name": "Salçalı Tavuklu Makarna",
+      "description": "Yapay zeka tarafından oluşturulmuştur.",
+      "ingredients": [
+        "🍝 250 gr makarna",
+        "🍗 300 gr tavuk küpleri",
+        "🍅 2 yemek kaşığı salça",
+        "🧅 1 adet soğan",
+        "🧄 2 diş sarımsak",
+        "🫒 Zeytinyağı",
+        "🧂 Tuz",
+        "🌶️ Karabiber",
+        "🌿 Maydanoz (isteğe bağlı)"
+      ],
+      "steps": [
+        "Makarnayı haşlayın. ",
+        "Tavuk küplerini zeytinyağında kavurun. ",
+        "Soğanı ve sarımsağı ince ince doğrayıp tavuklara ekleyin ve kavurun. ",
+        "Salçayı ekleyip kokusu çıkana kadar kavurun. ",
+        "Tuz ve karabiberi ekleyin. ",
+        "Haşlanmış makarnayı sosun içine ekleyip karıştırın. ",
+        "İsteğe bağlı olarak üzerine kıyılmış maydanoz serpiştirin. ",
+        "Sıcak servis yapın."
+      ],
+      "image": "/default.jpg",
+      "category": "Geleneksel"
+    },
+    {
+      "name": "Tavuk Sote",
+      "description": "Yapay zeka tarafından oluşturulmuştur.",
+      "ingredients": [
+        "🍗 500 gr tavuk göğsü",
+        "🧅 1 adet soğan",
+        "🫑 1 adet yeşil biber",
+        "🍅 1 yemek kaşığı salça",
+        "🧄 2 diş sarımsak",
+        "🧂 Tuz",
+        "🌶️ Karabiber",
+        "🌿 Kekik",
+        "🫒 Zeytinyağı"
+      ],
+      "steps": [
+        "Tavuk göğsünü küp küp doğrayın. ",
+        "Soğanı ve biberi yemeklik doğrayın, sarımsağı ezin. ",
+        "Tavukları zeytinyağında suyunu salıp çekene kadar kavurun. ",
+        "Soğan ve biberi ekleyip pembeleşene kadar kavurun. ",
+        "Sarımsağı, salçayı, tuzu, karabiberi ve kekiği ekleyip karıştırın. ",
+        "Bir miktar su ekleyip kısık ateşte 10 dakika pişirin. ",
+        "Sıcak servis yapın."
+      ],
+      "image": "/default.jpg",
+      "category": "Geleneksel"
+    },
+    {
+      "name": "Fırında Sebzeli Tavuk",
+      "description": "Yapay zeka tarafından oluşturulmuştur.",
+      "ingredients": [
+        "🍗 500 gr tavuk but veya göğüs",
+        "🥕 2 adet havuç",
+        "🥔 2 adet patates",
+        "🧅 1 adet soğan",
+        "🍅 1 yemek kaşığı salça",
+        "🌿 Biberiye",
+        "🌿 Kekik",
+        "🫒 Zeytinyağı",
+        "🧂 Tuz",
+        "🌶️ Karabiber"
+      ],
+      "steps": [
+        "Tavukları yıkayıp kurulayın. ",
+        "Havuç, patates ve soğanı soyup iri küpler halinde doğrayın. ",
+        "Bir fırın kabına sebzeleri yayın. ",
+        "Üzerine tavukları yerleştirin. ",
+        "Bir kapta zeytinyağı, salça, biberiye, kekik, tuz ve karabiberi karıştırın. ",
+        "Bu karışımı tavuk ve sebzelerin üzerine gezdirin. ",
+        "Önceden ısıtılmış 180 derece fırında yaklaşık 45 dakika, tavuklar pişene kadar pişirin."
+      ],
+      "image": "/default.jpg",
+      "category": "Geleneksel"
+    },
+    {
+      "name": "Tavuklu Taco Salatası",
+      "description": "Yapay zeka tarafından oluşturulmuştur.",
+      "ingredients": [
+        "🍗 300 gr tavuk kıyma",
+        "🍅 1 yemek kaşığı salça",
+        "🌮 Taco baharatı",
+        "🥬 Marul",
+        "🍅 Çeri domates",
+        "🧅 Kırmızı soğan",
+        "🥑 Avokado",
+        "🧀 Cheddar peyniri",
+        "🍋 Limon suyu",
+        "🫒 Zeytinyağı"
+      ],
+      "steps": [
+        "Tavuk kıymayı tavada kavurun. ",
+        "Salçayı ve taco baharatını ekleyip karıştırın. ",
+        "Marulu doğrayın, çeri domatesleri ikiye bölün, kırmızı soğanı ince ince doğrayın, avokadoyu küp küp doğrayın. ",
+        "Bir kasede marul, domates, soğan ve avokadoyu karıştırın. ",
+        "Üzerine tavuklu harcı ekleyin. ",
+        "Rendelenmiş cheddar peyniri serpiştirin. ",
+        "Limon suyu ve zeytinyağı gezdirerek servis yapın."
+      ],
+      "image": "/default.jpg",
+      "category": "Geleneksel"
+    },
+    {
+      "name": "Salçalı Tavuk",
+      "description": "Yapay zeka tarafından oluşturulmuştur.",
+      "ingredients": [
+        "🍗 Tavuk (miktarı belirtilmemiş)",
+        "🍅 Salça (miktarı belirtilmemiş)"
+      ],
+      "steps": [
+        "Tavuk parçalarını uygun büyüklükte kesin. ",
+        "Tavuk parçalarını bir tavaya alın ve kısık ateşte kendi suyunu salıp çekene kadar pişirin. ",
+        "Tavuklar suyunu çektikten sonra salçayı ekleyin ve karıştırın. ",
+        "Salçanın kokusu çıkana kadar kavurun. ",
+        "Servis yapın."
+      ],
+      "image": "/default.jpg",
+      "category": "Geleneksel"
+    },
+    {
+      "name": "Kabak Dilimleri",
+      "description": "Yapay zeka tarafından oluşturulmuştur.",
+      "ingredients": [
+        "🎃 1 adet kabak"
+      ],
+      "steps": [
+        "Kabağı yıkayın. ",
+        "Dilimleyin ve servis yapın. İsteğe bağlı olarak fırında hafifçe pişirebilirsiniz."
+      ],
+      "image": "/default.jpg",
+      "category": "Geleneksel"
+    },
+    {
+      "name": "Kabak Sote",
+      "description": "Yapay zeka tarafından oluşturulmuştur.",
+      "ingredients": [
+        "🎃 1 adet kabak",
+        "🧅 1 adet soğan",
+        "🍅 1 adet domates",
+        "🫒 Zeytinyağı",
+        "🧂 Tuz",
+        "🌶️ Karabiber",
+        "🌿 Maydanoz (isteğe bağlı)"
+      ],
+      "steps": [
+        "Kabağı ve soğanı küp küp doğrayın. Domatesi rendeleyin. ",
+        "Tavada zeytinyağını ısıtın. Soğanı kavurun. ",
+        "Kabağı ekleyin ve yumuşayana kadar pişirin. ",
+        "Rendelenmiş domatesi ekleyin ve suyunu çekene kadar pişirin. ",
+        "Tuz ve karabiber ile tatlandırın. ",
+        "İsteğe bağlı olarak kıyılmış maydanoz ile servis yapın."
+      ],
+      "image": "/default.jpg",
+      "category": "Geleneksel"
+    },
+    {
+      "name": "Kabak Mücveri",
+      "description": "Yapay zeka tarafından oluşturulmuştur.",
+      "ingredients": [
+        "🎃 2 adet kabak",
+        "🥚 2 adet yumurta",
+        "🧅 1 adet soğan",
+        "🌿 Dereotu (bir tutam)",
+        "🌿 Maydanoz (bir tutam)",
+        "🌾 Un (yarım su bardağı)",
+        "🧀 Beyaz peynir (100g)",
+        "🧂 Tuz",
+        "🌶️ Karabiber",
+        "🫒 Zeytinyağı (kızartmak için)"
+      ],
+      "steps": [
+        "Kabakları rendeleyin ve suyunu sıkın. ",
+        "Soğanı ince ince doğrayın. Dereotu ve maydanozu kıyın. ",
+        "Rendelediğiniz kabakları, soğan, dereotu, maydanoz, yumurta, un, beyaz peynir, tuz ve karabiberi bir kapta karıştırın. ",
+        "Tavada zeytinyağını ısıtın. ",
+        "Karışımdan kaşıkla alarak tavaya koyun ve her iki tarafını da kızarana kadar pişirin. ",
+        "Sıcak servis yapın."
+      ],
+      "image": "/default.jpg",
+      "category": "Geleneksel"
+    },
+    {
+      "name": "Fırında Kabak Salatası",
+      "description": "Yapay zeka tarafından oluşturulmuştur.",
+      "ingredients": [
+        "🎃 1 adet kabak",
+        "🌶️ 1 adet kırmızı biber",
+        "🧅 Yarım soğan",
+        "🧄 2 diş sarımsak",
+        "🌿 Kekik (1 çay kaşığı)",
+        "🫒 Zeytinyağı (2 yemek kaşığı)",
+        "🍋 Limon suyu (1 yemek kaşığı)",
+        "🧂 Tuz",
+        "🌶️ Karabiber"
+      ],
+      "steps": [
+        "Kabağı, biberi ve soğanı küp küp doğrayın. Sarımsağı ezin. ",
+        "Tüm malzemeleri bir kapta zeytinyağı, limon suyu, kekik, tuz ve karabiber ile karıştırın. ",
+        "Yağlı kağıt serilmiş fırın tepsisine yayın. ",
+        "200 derece fırında sebzeler yumuşayana kadar yaklaşık 20-25 dakika pişirin. ",
+        "Ilık veya soğuk servis yapın."
+      ],
+      "image": "/default.jpg",
+      "category": "Geleneksel"
+    },
+    {
+      "name": "Kabaklı Spaghetti",
+      "description": "Yapay zeka tarafından oluşturulmuştur.",
+      "ingredients": [
+        "🎃 1 adet kabak",
+        "🍝 Spaghetti (1 paket)",
+        "🥓 Pastırma veya füme et (100g)",
+        "🧀 Parmesan peyniri (rendelenmiş)",
+        "🌿 Fesleğen (birkaç yaprak)",
+        "🧄 2 diş sarımsak",
+        "🌶️ Pul biber (isteğe bağlı)",
+        "🫒 Zeytinyağı",
+        "🧂 Tuz",
+        "🌶️ Karabiber"
+      ],
+      "steps": [
+        "Spaghetti'yi haşlayın. ",
+        "Kabağı soyacak ile şeritler halinde kesin (spaghetti gibi). ",
+        "Tavada zeytinyağını ısıtın, sarımsağı ekleyin ve kavurun. ",
+        "Pastırmayı veya füme eti ekleyip kızartın. ",
+        "Kabak şeritlerini ekleyin ve yumuşayana kadar pişirin. ",
+        "Haşlanmış spaghetti'yi tavaya ekleyin. Tuz, karabiber ve pul biber ile tatlandırın. ",
+        "Parmesan peyniri ve fesleğen ile servis yapın."
+      ],
+      "image": "/default.jpg",
+      "category": "Geleneksel"
+    },
+    {
+      "name": "Çikolata Parçacıkları",
+      "description": "Yapay zeka tarafından oluşturulmuştur.",
+      "ingredients": [
+        "🍫 Çikolata"
+      ],
+      "steps": [
+        "Çikolatayı küçük parçalara ayırın. ",
+        "Servis yapın veya bir tarifte kullanın."
+      ],
+      "image": "/default.jpg",
+      "category": "Geleneksel"
+    },
+    {
+      "name": "Çikolatalı Türk Kahvesi",
+      "description": "Yapay zeka tarafından oluşturulmuştur.",
+      "ingredients": [
+        "🍫 1 kare bitter çikolata",
+        "☕ 1 tatlı kaşığı Türk kahvesi",
+        "💧 1 fincan su",
+        "🍬 İsteğe bağlı şeker"
+      ],
+      "steps": [
+        "Cezveye suyu, kahveyi ve şekeri ekleyin. ",
+        "Kısık ateşte karıştırarak pişirin. ",
+        "Kaynamaya başlayınca köpüğü alın ve fincana paylaştırın. ",
+        "Fincanın dibine çikolatayı koyun ve üzerine kahveyi dökün. ",
+        "Çikolatanın erimesini bekleyin ve servis yapın."
+      ],
+      "image": "/default.jpg",
+      "category": "Geleneksel"
+    },
+    {
+      "name": "Muzlu Çikolata Dilimleri (Düşük Kalorili)",
+      "description": "Yapay zeka tarafından oluşturulmuştur.",
+      "ingredients": [
+        "🍌 1 adet muz",
+        "🍫 1 yemek kaşığı eritilmiş bitter çikolata (%70 kakao)",
+        "🥜 İsteğe bağlı fındık veya badem"
+      ],
+      "steps": [
+        "Muzu dilimleyin. ",
+        "Eritilmiş çikolatayı muz dilimlerinin üzerine gezdirin. ",
+        "İsteğe bağlı olarak üzerine fındık veya badem serpiştirin. ",
+        "Buzdolabında 15 dakika soğutun ve servis yapın."
+      ],
+      "image": "/default.jpg",
+      "category": "Geleneksel"
+    },
+    {
+      "name": "Çikolatalı Avokado Puding",
+      "description": "Yapay zeka tarafından oluşturulmuştur.",
+      "ingredients": [
+        "🥑 1 adet olgun avokado",
+        "🍫 2 yemek kaşığı kakao",
+        "🍯 1-2 yemek kaşığı bal veya agave şurubu",
+        "🥛 1/4 su bardağı süt veya badem sütü",
+        "🍫 Çikolata parçacıkları (üzeri için)"
+      ],
+      "steps": [
+        "Avokado, kakao, bal ve sütü blenderda pürüzsüz olana kadar karıştırın. ",
+        "Kıvamı koyu gelirse biraz daha süt ekleyin. ",
+        "Kaselere paylaştırın ve üzerini çikolata parçacıkları ile süsleyin. ",
+        "Buzdolabında en az 30 dakika soğutun ve servis yapın."
+      ],
+      "image": "/default.jpg",
+      "category": "Geleneksel"
+    },
+    {
+      "name": "Çikolatalı Ekmek Dilimleri",
+      "description": "Yapay zeka tarafından oluşturulmuştur.",
+      "ingredients": [
+        "🍞 2 dilim ekmek",
+        "🍫 Fındık kremalı çikolata"
+      ],
+      "steps": [
+        "Ekmek dilimlerinin üzerine fındık kremalı çikolata sürün. ",
+        "Afiyetle yiyin."
+      ],
+      "image": "/default.jpg",
+      "category": "Geleneksel"
     }
   ]
 }
